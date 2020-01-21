@@ -36,6 +36,20 @@ const errorParser = ({ err }) => {
       break
     }
   }
+    
+  if (!structured) {
+    return {
+      id: `11321`,
+      context: {
+        message: err instanceof Error
+          ? err.message
+          : typeof err === 'string'
+          ? err
+          : undefined
+      },
+      error: err instanceof Error ? err : undefined,
+    }
+  }
 
   return structured
 }
