@@ -38,20 +38,20 @@ import theme from "../../../../src/gatsby-plugin-theme-ui"
 import StubList from "../stub-list"
 
 let location
-beforeEach(() => {
-  useStaticQuery.mockReturnValueOnce({
-    site: {
-      siteMetadata: {
-        title: `GatsbyJS`,
-      },
-    },
-  })
-  location = {
-    pathname: `/contributing/stub-list`,
-  }
-})
 
 describe(`StubList`, () => {
+  beforeAll(() => {
+    useStaticQuery.mockReturnValue({
+      site: {
+        siteMetadata: {
+          title: `GatsbyJS`,
+        },
+      },
+    })
+    location = {
+      pathname: `/contributing/stub-list`,
+    }
+  })
   it(`shows a title`, () => {
     const { getByText } = render(
       <ThemeProvider theme={theme}>
