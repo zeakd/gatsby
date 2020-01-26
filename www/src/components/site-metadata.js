@@ -4,10 +4,12 @@ import { graphql, useStaticQuery } from "gatsby"
 
 import gatsbyIcon from "../assets/gatsby-icon.png"
 
-console.log(useStaticQuery)
-
 const SiteMetadata = ({ pathname, locale }) => {
-  const data = useStaticQuery(graphql`
+  const {
+    site: {
+      siteMetadata: { siteUrl, title, twitter },
+    },
+  } = useStaticQuery(graphql`
     query SiteMetadata {
       site {
         siteMetadata {
@@ -18,14 +20,6 @@ const SiteMetadata = ({ pathname, locale }) => {
       }
     }
   `)
-
-  console.log(data)
-
-  const {
-    site: {
-      siteMetadata: { siteUrl, title, twitter },
-    },
-  } = data
 
   return (
     <Helmet defer={false} defaultTitle={title} titleTemplate={`%s | ${title}`}>
