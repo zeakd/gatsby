@@ -116,7 +116,7 @@
     "react-dev-utils": "^4.2.3",
     "react-error-overlay": "^3.0.0",
     "react-hot-loader": "^4.12.19",
-    "redux": "^4.0.5",
+    "redux": "4.0.4",
     "redux-thunk": "^2.3.0",
     "semver": "^5.7.1",
     "shallow-compare": "^1.2.2",
